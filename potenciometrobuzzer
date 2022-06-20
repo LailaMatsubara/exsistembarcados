@@ -1,0 +1,122 @@
+#define L1 6
+#define L2 5
+#define L3 4
+#define L4 3
+
+#define L5 2
+#define buz 7
+#define pot A0
+
+void setup()
+{
+pinMode(6, OUTPUT);
+pinMode(5, OUTPUT);
+pinMode(4, OUTPUT);
+pinMode(3, OUTPUT);
+pinMode(2, OUTPUT);
+pinMode(A0, INPUT);
+pinMode(7, OUTPUT);
+}
+
+void loop()
+{
+int potenciometro = analogRead(pot);
+
+	if(potenciometro >= 0)
+	{
+		digitalWrite(L1, LOW);
+		digitalWrite(L2, LOW);
+		digitalWrite(L3, LOW);
+		digitalWrite(L4, LOW);
+		digitalWrite(L5, LOW);
+	}
+	if(potenciometro >= 170)
+	{
+		digitalWrite(L1, HIGH);
+	}
+	if(potenciometro >= 341)
+	{
+		digitalWrite(L1, HIGH);
+		digitalWrite(L2, HIGH);
+	}
+	if(potenciometro >= 512)
+	{
+		digitalWrite(L1, HIGH);
+		digitalWrite(L2, HIGH);
+		digitalWrite(L3, HIGH);
+	}
+	if(potenciometro >= 682)
+	{
+		digitalWrite(L1, HIGH);
+		digitalWrite(L2, HIGH);
+		digitalWrite(L3, HIGH);
+		digitalWrite(L4, HIGH);
+	}
+	if(potenciometro >= 853)
+	{
+		digitalWrite(L1, HIGH);
+		digitalWrite(L2, HIGH);
+		digitalWrite(L3, HIGH);
+		digitalWrite(L4, HIGH);
+		digitalWrite(L5, HIGH);
+		
+		buzzer();
+		
+	}
+
+}
+
+void buzzer()
+{
+delay(500);
+int tempo = 800;
+int nota = 300;
+tone(buz,330, nota); //MI
+
+delay(tempo);
+tone(buz,330, nota); //MI
+
+delay(tempo/3);
+tone(buz,392, nota); //SOL
+
+delay(tempo/3);
+tone(buz,330, nota); //MI
+
+delay(tempo/2.5);
+tone(buz,294, nota); //RE
+
+delay(tempo/2.5);
+tone(buz,262, nota); //DO
+
+delay(tempo*1.3);
+tone(buz,250, nota); //SI
+
+delay(tempo*1.2);
+tone(buz,330, nota); //MI
+
+delay(tempo);
+tone(buz,330, nota); //MI
+
+delay(tempo/3);
+tone(buz,392, nota); //SOL
+
+delay(tempo/3);
+tone(buz,330, nota); //MI
+
+delay(tempo/2.5);
+tone(buz,294, nota); //RE
+
+delay(tempo/2.5);
+tone(buz,262, nota); //DO
+
+delay(tempo/2.5);
+tone(buz,294, nota); //RE
+
+delay(tempo/2.5);
+tone(buz,262, nota); //DO
+
+delay(tempo/2.5);
+tone(buz,250, nota); //SI
+
+delay(tempo);
+}
